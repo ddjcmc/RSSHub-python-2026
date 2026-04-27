@@ -44,7 +44,7 @@ def ctx(category:str="chinese"):
 
 
     # posts = posts_ if len(posts_) < 1 else posts_[:1]
-    posts = posts[:5]
+    posts = posts[:9]
     return  {
         'title': f'everia {category}',
         'link': url,
