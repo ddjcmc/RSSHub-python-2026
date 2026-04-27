@@ -4,6 +4,7 @@ from urllib.parse import urlparse, urlunparse
 import requests
 import datetime
 from rsshub.utils import DEFAULT_HEADERS,fetch
+from parsel import Selector
 
 domain_url = "https://cosplaytele.com"
 
