@@ -59,7 +59,7 @@ def start_background_task(category: str):
 def _update_category(category: str):
     """
     后台爬虫与缓存更新：
-    1. 获取分类首页前27篇文章
+    1. 获取分类首页前7篇文章
     2. 对每一篇，检查数据库是否已有缓存（根据标准化后的链接）
        - 有：直接使用数据库中的记录
        - 无：爬取完整内容并生成记录
@@ -71,7 +71,7 @@ def _update_category(category: str):
         res = requests.get(url, headers=DEFAULT_HEADERS)
         soup = BeautifulSoup(res.text, 'html.parser')
         posts = soup.find('div', id='blog-entries').find_all(id=re.compile(r'^post-'))
-        posts = posts[:27]
+        posts = posts[:7]
         print(f"[后台] 找到 {len(posts)} 篇文章")
 
         # 收集最终要插入的条目
