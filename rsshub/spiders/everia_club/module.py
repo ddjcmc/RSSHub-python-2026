@@ -2,7 +2,6 @@ import sqlite3
 import threading
 import os
 import time
-from parsel import Selector
 from bs4 import BeautifulSoup
 import re
 from urllib.parse import urlparse, urlunparse
