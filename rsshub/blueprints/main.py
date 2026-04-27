@@ -82,6 +82,28 @@ def filter_content(ctx):
 
 
 #---------- feed路由从这里开始 -----------#
+
+
+#=================== 自定义分类路由 ====================#
+@bp.route('/everia_club/category/<string:category>')
+def everia_club_module(category):
+    from rsshub.spiders.everia_club.module import ctx
+    return render_template('main/atom.xml', **filter_content(ctx(category)))
+
+@bp.route('/cosplaytele/category/<string:category>')
+def cosplaytele_module(category):
+    from rsshub.spiders.cosplaytele.module import ctx
+    return render_template('main/atom.xml', **filter_content(ctx(category)))
+
+
+
+# ==================== 下面是自带的 ==================== # 
+
+
+
+
+
+
 @bp.route('/cninfo/announcement/<string:stock_id>/<string:category>')
 @bp.route('/cninfo/announcement')
 def cninfo_announcement(stock_id='', category=''):
